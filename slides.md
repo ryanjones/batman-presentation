@@ -18,7 +18,7 @@ Email: **Ryan@System88.com**
 * UI and Bindings in HTML  
 * Restful 
 * Tested
-* Performance
+* Fast
 
 !SLIDE left
 
@@ -26,7 +26,7 @@ Email: **Ryan@System88.com**
 
 * Persistance (Local/Rest/Rails Storage)
 * Validations (presence, numeric, min/max length, etc.)
-* Associations (belongsTo, hasMany, )
+* Associations (belongsTo, hasMany)
 
 ``` coffeescript
 class MassCall.Recording extends Batman.Model
@@ -43,7 +43,7 @@ class MassCall.Recording extends Batman.Model
 
 # Controller
 
-* index show new edit create destroy
+* index show new create destroy
 
 ``` coffeescript
 class MassCall.RecordingsController extends Batman.Controller
@@ -57,8 +57,6 @@ class MassCall.RecordingsController extends Batman.Controller
  
   new: (params) ->
   
-  edit: (params) ->
-  
   create: (params) ->
   
   update: (params) ->
@@ -68,26 +66,40 @@ class MassCall.RecordingsController extends Batman.Controller
 
 # Views
 
-``` html
-recordings/index.html  
+* Partials
+* View binding (2 way)
+* Filters
 
-<div data-foreach-recording="recordings" data-mixin="animation">
-    <div data-partial="recordings/_recording">
-    </div>
-</div>
+``` html
+  recordings/index.html  
+  
+  <div data-foreach-recording="recordings" data-mixin="animation">
+      <div data-partial="recordings/_recording">
+      </div>
+  </div>
 ```
 
 ``` html
-recordings/_recording.html
-
-<span data-bind="recording.label"></span>
-<span data-bind="recording.url"></span>
-
+  recordings/_recording.html
+  
+  <span data-bind="recording.label"></span>
+  <span data-bind="recording.url"></span>
 ```
+
+``` html
+  <span data-bind="recording.label | truncate 100 "/>
+```
+
+``` html
+  <span data-showif="recording.valid">this is a valid recording</span></p>
+```
+
 
 !SLIDE left
 
-# Routing
+# Routing  
+
+* Restful  
 
 ``` coffeescript
 window.MassCall = class MassCall extends Batman.App
@@ -97,19 +109,50 @@ window.MassCall = class MassCall extends Batman.App
   @resources 'recordings'
 ```
 
+``` html
+  Mass Call App!
+  <br/>
+  View all recordings:
+  
+  <a data-route="routes.recordings">view all recordings</a>
+  <a data-route="routes.recordings" href="/recordings"></a>
+  
+  <a data-route="routes.recordings[recording]">show a recording</a>
+  <a data-route="routes.recordings[recording]" href="/recordings/1"></a>
+```
 
+!SLIDE left
 
+# Other Good Stuff  
 
-!SLIDE
+* Generators (model, controller, routes)
+* Rails gem 
+* npm & node.js for quick hacking
+* jQuery or solo version
+* gzipped to 45kb
+
+!SLIDE left
 
 # The bad
-No batman.js 1.0 (whenever Shopify 2 launches)
-Docs are terrible
+
+* No batman.js 1.0 (out whenever Shopify 2 launches)
+* Version churn (breaking changes)
+* Docs are constantly out of date
+* Error messages not helpful/incorrect
+* Examples out of date (partially rectified)
+* No view generators/sub par controller generators (hopefully fixed in the next couple of weeks)
+* npm packages randomly broken
+* No websockets (yet)
+
+!SLIDE left
+
+# Examples
 
 
 
-!SLIDE
+!SLIDE left
 
-# Refs
-http://devrates.com/project/show/79079/Batmanjs -- Intro batman logo
-https://github.com/infews/keydown -- Used to make presentation
+# Refs  
+
+* http://devrates.com/project/show/79079/Batmanjs -- Intro batman logo
+* https://github.com/infews/keydown -- Used to make presentation

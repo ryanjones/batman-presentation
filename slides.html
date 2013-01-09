@@ -47,7 +47,7 @@
           <li>UI and Bindings in HTML</li>
           <li>Restful</li>
           <li>Tested</li>
-          <li>Performance</li>
+          <li>Fast</li>
           </ul>
         </div>
         <div class='spacer bottom'></div>
@@ -60,7 +60,7 @@
 <ul>
 <li>Persistance (Local/Rest/Rails Storage)</li>
 <li>Validations (presence, numeric, min/max length, etc.)</li>
-<li>Associations (belongsTo, hasMany, )</li>
+<li>Associations (belongsTo, hasMany)</li>
 </ul>
 
 
@@ -75,11 +75,11 @@
     <h1>Controller</h1>
     
     <ul>
-    <li>index show new edit create destroy</li>
+    <li>index show new create destroy</li>
     </ul>
     
     
-    <p><textarea class='code' display='none' mode='coffeescript'>class MassCall.RecordingsController extends Batman.Controller&#x000A;  routingKey: 'recordings'&#x000A;&#x000A;  index: (params) ->&#x000A;    MassCall.Recording.load (err,results) =>&#x000A;      @set 'recordings', new Batman.Set(results...)&#x000A;      &#x000A;  show: (params) ->&#x000A; &#x000A;  new: (params) ->&#x000A;  &#x000A;  edit: (params) ->&#x000A;  &#x000A;  create: (params) ->&#x000A;  &#x000A;  update: (params) -></textarea>
+    <p><textarea class='code' display='none' mode='coffeescript'>class MassCall.RecordingsController extends Batman.Controller&#x000A;  routingKey: 'recordings'&#x000A;&#x000A;  index: (params) ->&#x000A;    MassCall.Recording.load (err,results) =>&#x000A;      @set 'recordings', new Batman.Set(results...)&#x000A;      &#x000A;  show: (params) ->&#x000A; &#x000A;  new: (params) ->&#x000A;  &#x000A;  create: (params) ->&#x000A;  &#x000A;  update: (params) -></textarea>
 </p>
   </div>
   <div class='spacer bottom'></div>
@@ -89,36 +89,94 @@
   <div class='content'>
     <h1>Views</h1>
     
+    <ul>
+    <li>Partials</li>
+    <li>View binding (2 way)</li>
+    <li>Filters</li>
+    </ul>
+    
+    
     <p><textarea class='code' display='none' mode='html'>recordings/index.html  &#x000A;&#x000A;<div data-foreach-recording="recordings" data-mixin="animation">&#x000A;    <div data-partial="recordings/_recording">&#x000A;    </div>&#x000A;</div></textarea>
 </p>
     
     <p><textarea class='code' display='none' mode='html'>recordings/_recording.html&#x000A;&#x000A;<span data-bind="recording.label"></span>&#x000A;<span data-bind="recording.url"></span></textarea>
 </p>
     
-    <h1>Routing</h1>
+    <p><textarea class='code' display='none' mode='html'><span data-bind="recording.label | truncate 100 "/></textarea>
+</p>
     
-    <p><textarea class='code' display='none' mode='coffeescript'>window.MassCall = class MassCall extends Batman.App&#x000A;  Batman.ViewStore.prefix = 'assets/views'&#x000A;&#x000A;  @root 'app#index'&#x000A;  @resources 'recordings'</textarea>
+    <p><textarea class='code' display='none' mode='html'><span data-showif="recording.valid">this is a valid recording</span></p></textarea>
 </p>
   </div>
   <div class='spacer bottom'></div>
 </section>
-    <section class='slide'>
+    <section class='left slide'>
+  <div class='spacer top'></div>
+  <div class='content'>
+    <h1>Routing</h1>
+    
+    <ul>
+    <li>Restful</li>
+    </ul>
+    
+    
+    <p><textarea class='code' display='none' mode='coffeescript'>window.MassCall = class MassCall extends Batman.App&#x000A;  Batman.ViewStore.prefix = 'assets/views'&#x000A;&#x000A;  @root 'app#index'&#x000A;  @resources 'recordings'</textarea>
+</p>
+    
+    <p><textarea class='code' display='none' mode='html'>Mass Call App!&#x000A;<br/>&#x000A;View all recordings:&#x000A;&#x000A;<a data-route="routes.recordings">view all recordings</a>&#x000A;<a data-route="routes.recordings" href="/recordings"></a>&#x000A;&#x000A;<a data-route="routes.recordings[recording]">show a recording</a>&#x000A;<a data-route="routes.recordings[recording]" href="/recordings/1"></a></textarea>
+</p>
+  </div>
+  <div class='spacer bottom'></div>
+</section>
+    <section class='left slide'>
+        <div class='spacer top'></div>
+        <div class='content'>
+          <h1>Other Good Stuff</h1>
+          
+          <ul>
+          <li>Generators (model, controller, routes)</li>
+          <li>Rails gem</li>
+          <li>npm &amp; node.js for quick hacking</li>
+          <li>jQuery or solo version</li>
+          <li>gzipped to 45kb</li>
+          </ul>
+        </div>
+        <div class='spacer bottom'></div>
+      </section>
+    <section class='left slide'>
         <div class='spacer top'></div>
         <div class='content'>
           <h1>The bad</h1>
           
-          <p>No batman.js 1.0 (whenever Shopify 2 launches)
-          Docs are terrible</p>
+          <ul>
+          <li>No batman.js 1.0 (out whenever Shopify 2 launches)</li>
+          <li>Version churn (breaking changes)</li>
+          <li>Docs are out of date</li>
+          <li>Error messages not helpful</li>
+          <li>Examples out of date (partially rectified)</li>
+          <li>No view generators/sub par controller generators (hopefully fixed in the next couple of weeks)</li>
+          <li>npm packages randomly broken</li>
+          <li>No websockets (yet)</li>
+          </ul>
         </div>
         <div class='spacer bottom'></div>
       </section>
-    <section class='slide'>
+    <section class='left slide'>
+        <div class='spacer top'></div>
+        <div class='content'>
+          <h1>Examples</h1>
+        </div>
+        <div class='spacer bottom'></div>
+      </section>
+    <section class='left slide'>
   <div class='spacer top'></div>
   <div class='content'>
     <h1>Refs</h1>
 
-<p>http://devrates.com/project/show/79079/Batmanjs -- Intro batman logo
-https://github.com/infews/keydown -- Used to make presentation</p>
+<ul>
+<li>http://devrates.com/project/show/79079/Batmanjs -- Intro batman logo</li>
+<li>https://github.com/infews/keydown -- Used to make presentation</li>
+</ul>
   </div>
   <div class='spacer bottom'></div>
 </section>
