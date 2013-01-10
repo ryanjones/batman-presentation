@@ -148,6 +148,7 @@ window.MassCall = class MassCall extends Batman.App
 
 # Examples
 
+http://addyosmani.github.com/todomvc/labs/architecture-examples/batman/index.html
 
 
 
