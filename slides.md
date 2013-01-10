@@ -43,7 +43,7 @@ class MassCall.Recording extends Batman.Model
 
 # Controller
 
-* index show new create destroy
+* index show new create update destroy
 
 ``` coffeescript
 class MassCall.RecordingsController extends Batman.Controller
@@ -60,6 +60,8 @@ class MassCall.RecordingsController extends Batman.Controller
   create: (params) ->
   
   update: (params) ->
+
+  destroy: (params) ->
 ```
 
 !SLIDE left
@@ -149,7 +151,6 @@ window.MassCall = class MassCall extends Batman.App
 # Examples
 
 http://addyosmani.github.com/todomvc/labs/architecture-examples/batman/index.html
-
 
 
 !SLIDE left
