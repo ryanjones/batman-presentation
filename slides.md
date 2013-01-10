@@ -150,8 +150,8 @@ window.MassCall = class MassCall extends Batman.App
 
 # Examples
 
-http://addyosmani.github.com/todomvc/labs/architecture-examples/batman/index.html
-
+* http://addyosmani.github.com/todomvc/labs/architecture-examples/batman/index.html
+* http://ryanonrails.github.com/batman-presentation/batmap.html
 
 !SLIDE left
 
@@ -159,3 +159,4 @@ http://addyosmani.github.com/todomvc/labs/architecture-examples/batman/index.htm
 
 * http://devrates.com/project/show/79079/Batmanjs -- Intro batman logo
 * https://github.com/infews/keydown -- Used to make presentation
+* http://ryanonrails.github.com/batman-presentation/slides.html -- Presentation url

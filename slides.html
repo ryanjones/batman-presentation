@@ -75,11 +75,11 @@
     <h1>Controller</h1>
     
     <ul>
-    <li>index show new create destroy</li>
+    <li>index show new create update destroy</li>
     </ul>
     
     
-    <p><textarea class='code' display='none' mode='coffeescript'>class MassCall.RecordingsController extends Batman.Controller&#x000A;  routingKey: 'recordings'&#x000A;&#x000A;  index: (params) ->&#x000A;    MassCall.Recording.load (err,results) =>&#x000A;      @set 'recordings', new Batman.Set(results...)&#x000A;      &#x000A;  show: (params) ->&#x000A; &#x000A;  new: (params) ->&#x000A;  &#x000A;  create: (params) ->&#x000A;  &#x000A;  update: (params) -></textarea>
+    <p><textarea class='code' display='none' mode='coffeescript'>class MassCall.RecordingsController extends Batman.Controller&#x000A;  routingKey: 'recordings'&#x000A;&#x000A;  index: (params) ->&#x000A;    MassCall.Recording.load (err,results) =>&#x000A;      @set 'recordings', new Batman.Set(results...)&#x000A;      &#x000A;  show: (params) ->&#x000A; &#x000A;  new: (params) ->&#x000A;  &#x000A;  create: (params) ->&#x000A;  &#x000A;  update: (params) ->&#x000A;&#x000A;  destroy: (params) -></textarea>
 </p>
   </div>
   <div class='spacer bottom'></div>
@@ -165,6 +165,8 @@
         <div class='spacer top'></div>
         <div class='content'>
           <h1>Examples</h1>
+          
+          <p>http://addyosmani.github.com/todomvc/labs/architecture-examples/batman/index.html</p>
         </div>
         <div class='spacer bottom'></div>
       </section>
@@ -176,6 +178,7 @@
 <ul>
 <li>http://devrates.com/project/show/79079/Batmanjs -- Intro batman logo</li>
 <li>https://github.com/infews/keydown -- Used to make presentation</li>
+<li>http://ryanonrails.github.com/batman-presentation/slides.html -- Presentation url</li>
 </ul>
   </div>
   <div class='spacer bottom'></div>
